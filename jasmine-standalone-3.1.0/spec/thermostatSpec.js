@@ -23,6 +23,11 @@ describe('down', function() {
     thermostat.down(1)
     expect(thermostat.returnTemperature()).toEqual(19)
   })
+
+  it('cannot drop below 10 degrees', function() {
+    expect( function() { thermostat.down(11) }).toThrow('Minimum temperature is 10 degrees')
+  })
 })
+
 
 })
