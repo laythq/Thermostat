@@ -13,8 +13,15 @@ describe('temperature', function() {
 
 describe('up', function() {
   it('increases the temperature by n degrees', function() {
-    thermostat.up()
+    thermostat.up(1)
     expect(thermostat.returnTemperature()).toEqual(21)
+  })
+})
+
+describe('down', function() {
+  it('decreases the temperature by n degrees', function() {
+    thermostat.down(1)
+    expect(thermostat.returnTemperature()).toEqual(19)
   })
 })
 
