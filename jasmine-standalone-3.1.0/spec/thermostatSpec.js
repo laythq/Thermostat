@@ -51,5 +51,26 @@ describe('down', function() {
   })
 })
 
+describe('reset', function() {
+  it('resets the temperature to 20', function() {
+    thermostat.reset()
+    expect(thermostat.temperature).toEqual(20)
+  })
+})
+
+describe('current usage', function () {
+  it('returns low-usage if temperature < 18', function() {
+    thermostat.down(3)
+    expect(thermostat.currentUsage()).toBe('low-usage')
+  })
+  it('returns mid-usage if temperature between 18 and 25', function() {
+    expect(thermostat.currentUsage()).toBe('mid-usage')
+  })
+  it('returns low-usage if temperature >= 25', function() {
+    thermostat.powerSaver("off")
+    thermostat.up(6)
+    expect(thermostat.currentUsage()).toBe('high-usage')
+  })
+})
 
 })

@@ -32,3 +32,19 @@ Thermostat.prototype.powerSaver = function(command) {
   }
   else throw "Invalid command, choose on or off"
 }
+
+Thermostat.prototype.reset = function() {
+  this.temperature = 20
+}
+
+Thermostat.prototype.currentUsage = function() {
+  if (this.temperature < 18) {
+    return 'low-usage'
+  }
+  if (this.temperature < 25) {
+    return 'mid-usage'
+  }
+  if (this.temperature > 24) {
+    return 'high-usage'
+  }
+}
